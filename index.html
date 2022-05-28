@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <h2>Registration Form</h2>
+    <form id="Form_one">
+      <div class="frm-lft">
+        <label for="name">First name</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="text" id="fname" name="fname" required /><br />
+        <label for="name">Last name</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="text" id="lname" name="lname" required /><br />
+        <label for="dob">Date Of Birth</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="date" id="Test_DatetimeLocal" required /><br />
+        <label for="city">City</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="text" id="city" name="city" required /><br />
+        <label for="contry">Country</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="country" id="country" name="country" required /><br />
+        <label for="zipcode">Zip Code:</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <input type="number" name="zipcode" id="zipcode" required /><br />
+      </div>
+      <div class="frm-rgt">
+        <label for="address">Address:</label>
+        <i class="fa fa-asterisk" aria-hidden="true"></i><br />
+        <textarea
+          name="address"
+          id="address"
+          placeholder="Your Address"
+          required
+        ></textarea
+        ><br />
+        <a id="reg">Preview</a>
+        <button type="submit" id="submit">Submit</button>
+      </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.16/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      $("#reg").click(function () {
+        var name = $("#fname").val();
+        var lastname = $("#lname").val();
+        var dob = $("#Test_DatetimeLocal").val();
+        var city = $("#city").val();
+        var country = $("#country").val();
+        var zipcode = $("#zipcode").val();
+        var address = $("#address").val();
+        if (
+          name == "" ||
+          lastname == "" ||
+          dob == "" ||
+          city == "" ||
+          country == "" ||
+          zipcode == "" ||
+          address == ""
+        ) {
+          Swal.fire(
+            "There Is Something Missed",
+            "Please Filled The Required Boxex(*)",
+            "question"
+          );
+        } else {
+          swal({
+            title: "Please Ensure The Details!",
+            text:
+              // "Please check the fields\n" +
+              "\nYour Name Is: " +
+              name +
+              " " +
+              lastname +
+              "\nYour DOB: " +
+              dob +
+              "\nYour City and Country are: " +
+              city +
+              "," +
+              country +
+              "\nPin code: " +
+              zipcode +
+              "\nYour Address Is: " +
+              address,
+
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              Swal.fire("Submit It", "success");
+            } else {
+              swal("Cancellation Done! fill the form again....");
+            }
+          });
+        }
+      });
+    </script>
+    
+  </body>
+</html>
