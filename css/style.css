@@ -2,13 +2,7 @@
 /* CSS Document */
 body {
   font-family: "Baloo Paaji 2", cursive;
-}
-.container{
-   margin: 0 auto;
-  padding: 0;
-  max-width: 1140px;
-  width: 100%;
-  box-sizing: border-box;
+  margin: 0;padding: 0;
 }
 h2 {
   text-align: center;
@@ -17,6 +11,12 @@ h2 {
   text-decoration: underline;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 form {
   margin: 0 30px;
@@ -84,9 +84,9 @@ color: white;
   text-align: left;
   padding-left: 40px;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 600px) {
   .frm-lft, .frm-rgt {
-    width: 46%;
+    width: 100%;
 }
 .swal2-popup{
   width: 90% !important;
